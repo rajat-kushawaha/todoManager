@@ -1,0 +1,34 @@
+{
+  "name": "todo-bugdriver",
+  "version": "1.0.0",
+  "description": "",
+  "main": "config.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "dependencies": {
+    "nodemon": "^2.0.2"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "express": "^4.17.1",
+    "mocha": "^7.0.1",
+    "supertest": "^4.0.2"
+  },
+  "scripts": {
+    "test": "export DATA_STORE=./test/testDataStore/testTodoData.json;export USERS_STORE=./test/testuser.json;mocha",
+    "start": "export DATA_STORE=./data/todoData.json;export USERS_STORE=./data/users.json;nodemon -i data server.js 3000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/step-batch-7/todo-bugdriver.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/step-batch-7/todo-bugdriver/issues"
+  },
+  "homepage": "https://github.com/step-batch-7/todo-bugdriver#readme"
+}
