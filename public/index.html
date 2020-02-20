@@ -2,8 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Document</title>
+    <title>Todo Manager</title>
     <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/popup.css" />
+    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon" />
     <link
       href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600&display=swap"
       rel="stylesheet"
@@ -12,11 +14,17 @@
     <script src="./scripts/search.js"></script>
   </head>
   <body>
+    <h1 class="header-title">
+      TODO MANAGER &nbsp;&nbsp;&nbsp;|<span
+        class="username"
+        id="username"
+      ></span>
+    </h1>
     <input type="checkbox" name="searchBarToggle" id="searchBarToggle" />
     <div class="container">
       <div class="todoContainer">
         <div class="todo-list">
-          <h3>YOUR TODO's LIST</h3>
+          <h3>YOUR TODOLISTS</h3>
           <ul class="todo-list-items"></ul>
           <div class="todo-create">
             <input
@@ -36,7 +44,7 @@
               <h3 id="todo-title" contenteditable="true"></h3>
               <h6><span id="taskcount"></span> tasks remaining</h6>
               <div class="deleteTodoButton" onclick="deleteTodo()">
-                <span class="deleteBtnTxt">+</span>
+                <span class="deleteBtnTxt">x</span>
               </div>
             </div>
             <div class="todo-body"></div>
@@ -61,6 +69,7 @@
           <div class="searchIcon" data-title="search"></div>
         </label>
         <div class="logoutIcon" id="logout" data-title="logout"></div>
+        <div class="helpIcon" id="help" data-title="help"></div>
       </div>
       <div class="searchBox">
         <div class="searchEntry">
@@ -71,6 +80,147 @@
           />
         </div>
         <div class="searchResults"></div>
+      </div>
+    </div>
+
+    <div class="confirm-box hidden">
+      <div class="message"><span>Do you want to move task?</span></div>
+      <div class="buttons">
+        <div class="cancel" id="cancel"><img src="./images/cancel.png" /></div>
+        <div class="confirm" id="confirm"><img src="./images/check.png" /></div>
+      </div>
+    </div>
+
+    <div class="merge-todo-box hidden">
+      <div class="message"><span>Enter title to merge TodoList</span></div>
+      <div class="input">
+        <input
+          type="text"
+          class="new-title-entry"
+          id="new-title"
+          placeholder="Enter title..."
+        />
+        <div class="merge-button" id="confirm-merge">
+          <span>Merge Todolist</span>
+        </div>
+      </div>
+      <div class="cross" id="cancel-merge">
+        <img src="./images/cancel.png" />
+      </div>
+    </div>
+
+    <div class="help-box hidden">
+      <div class="title"><h1>Instructions to use</h1></div>
+      <div></div>
+      <div class="instruction-Box">
+        <div class="instruction">
+          <span>1. Add TodoList </span>
+
+          <span class="sub-instruction">
+            Enter title of new todoList in Box asking for new Todo.. and press
+            enter or click on add button next to it.</span
+          >
+        </div>
+
+        <div class="instruction">
+          <span> 2. Add Task in TodoList </span>
+
+          <span class="sub-instruction">
+            Click on TodoList from left and enter name of new task in right side
+            box asking for New Task.. and press enter or click on add button
+            next to it.</span
+          >
+        </div>
+
+        <div class="instruction">
+          <span> 3. Delete Task in TodoList </span>
+
+          <span class="sub-instruction">
+            Click on " - " icon on right most of task to delete.
+          </span>
+        </div>
+
+        <div class="instruction">
+          <span> 4. Edit Task in TodoList </span>
+
+          <span class="sub-instruction">
+            Click on"
+            <img src="./images/edit.png" height="30" width="30" alt="" />
+            " icon on right to edit.
+          </span>
+        </div>
+
+        <div class="instruction">
+          <span> 5. Set deadLine to Task in TodoList </span>
+
+          <span class="sub-instruction">
+            Click on"
+            <img src="./images/reminder.png" height="30" width="30" alt="" />
+            " icon on right to set deadLine.
+          </span>
+        </div>
+
+        <div class="instruction">
+          <span> 6. Delete TodoList </span>
+
+          <span class="sub-instruction">
+            Click on " x " icon on top right of todoList Box to delete TodoList.
+          </span>
+        </div>
+
+        <div class="instruction">
+          <span> 7. Edit TodoList title </span>
+
+          <span class="sub-instruction">
+            Click on title of todoList on top todoList Box to edit Title.
+          </span>
+        </div>
+
+        <div class="instruction">
+          <span> 8. Search Tasks and TodoLists </span>
+
+          <span class="sub-instruction">
+            Click on"
+            <img src="./images/todoSearch.png" height="30" width="30" />
+
+            "icon on top right of page to search.
+          </span>
+        </div>
+
+        <div class="instruction">
+          <span> 9. Move Task of One TodoList to another TodoList </span>
+
+          <span class="sub-instruction">
+            Drag a taskname to another Todolist and click on green ok button in
+            confirmation box.
+          </span>
+        </div>
+
+        <div class="instruction">
+          <span> 10. Merge Two todoLists. </span>
+
+          <span class="sub-instruction">
+            Drag a TodoList from list of todoList on left to another TodoList
+            and enter a new title in popup box it will create a new todo with
+            new title and tasks of both existing todos.<strong>
+              It will replace existing both TodoLists with new todoList.
+            </strong>
+          </span>
+        </div>
+
+        <div class="instruction">
+          <span> 11. Logout</span>
+
+          <span class="sub-instruction">
+            Click on"
+            <img src="./images/logout.png" height="30" width="30" />
+            "icon on top right of page to Logout.
+          </span>
+        </div>
+      </div>
+
+      <div class="cross" id="cancel-help">
+        <img src="./images/cancel.png" />
       </div>
     </div>
   </body>
